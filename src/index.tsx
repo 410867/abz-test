@@ -1,19 +1,35 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import './styles/global.scss';
+import { CssBaseline, GlobalStyles } from "@mui/material";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+const theme = createTheme({
+  typography: {
+    fontFamily: "Nunito, Arial, sans-serif",
+  },
+  palette: {
+    primary: {
+      main: "#00BDD3",
+    },
+    error: {
+      main: "#CB3D40",
+    },
+  },
+});
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const client = new QueryClient();
+
+ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+    <React.StrictMode>
+        <QueryClientProvider client={client}>
+          <ThemeProvider theme={theme}>
+            <CssBaseline />
+            <GlobalStyles styles={{ body: { backgroundColor: '#F8F8F8' } }} />
+            <App />
+          </ThemeProvider>
+        </QueryClientProvider>
+    </React.StrictMode>
+);

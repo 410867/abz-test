@@ -1,0 +1,122 @@
+.blockUsers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  text-align: center;
+
+  h1 {
+    font-size: 40px;
+    line-height: 40px;
+    font-weight: 400;
+    margin: 0;
+  }
+
+  .cardList {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 29px;
+  }
+
+  .cardItem {
+    width: 370px;
+    height: 254px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+
+    .cardPhoto {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+    }
+
+    .cardName {
+      margin: 0;
+      max-width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 26px;
+    }
+
+    .cardContact {
+      width: 100%;
+
+      .cardPosition,
+      .cardEmail,
+      .cardPhone {
+        margin: 0;
+        max-width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 26px;
+      }
+    }
+  }
+
+  .buttonShowMore {
+    width: 120px;
+    height: 34px;
+    padding: 4px 18px;
+    font-size: 16px;
+    line-height: 26px;
+    background: #F4E041;
+    color: rgba(0, 0, 0, 0.87);
+    border-radius: 80px;
+    text-decoration: none;
+    font-weight: 400;
+    align-content: center;
+    text-align: center;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #FFE302;
+    }
+  }
+}
+
+@media (max-width: 1185px) {
+  .blockUsers {
+    .cardItem {
+      width: 282px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .blockUsers {
+    .cardList {
+      gap: 16px;
+    }
+
+    .cardItem {
+      width: 344px;
+    }
+  }
+}
+
+@media (max-width: 360px) {
+  .blockUsers {
+    .cardList {
+      gap: 20px;
+    }
+
+    .cardItem {
+      width: 328px;
+    }
+  }
+}

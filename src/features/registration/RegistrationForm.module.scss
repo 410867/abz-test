@@ -1,0 +1,159 @@
+.blockRegistration {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+
+  h1 {
+    font-size: 40px;
+    line-height: 40px;
+    font-weight: 400;
+    margin: 0;
+    text-align: center;
+  }
+
+  .formGroup {
+    width: 100%;
+    max-width: 380px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    align-items: center;
+  }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input:not([type]) {
+      height: 54px;
+      border-radius: 4px;
+      background: #f8f8f8;
+      border: 1px solid #d0cfcf;
+      padding: 0 16px;
+      font-size: 16px;
+      line-height: 26px;
+      color: #000;
+      outline: none;
+      transition: border-color .15s ease;
+
+      &::placeholder {
+        color: #7e7e7e;
+      }
+
+      &:hover {
+        border-color: #bdbdbd;
+      }
+
+      &:focus {
+        border-color: #00bdd3;
+      }
+    }
+
+    .helper {
+      text-align: left;
+      font-size: 12px;
+      line-height: 14px;
+      margin-top: 4px;
+      margin-left: 16px;
+      color: #7E7E7E;
+    }
+
+    &.isError {
+      input {
+        border: 2px solid #cb3d40;
+        background: #f8f8f8;
+      }
+
+      .helper {
+        color: #cb3d40;
+      }
+    }
+  }
+
+  .blockPhonePositionAvatar {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .blockPositionAvatar {
+    display: flex;
+    flex-direction: column;
+    gap: 47px;
+  }
+
+  .fileRow {
+    display: flex;
+    width: 100%;
+    border: 1px solid #d0cfcf;
+    border-radius: 4px;
+    overflow: hidden;
+    height: 54px;
+
+    &:hover {
+      border-color: #bdbdbd;
+    }
+
+    &:focus-within {
+      border-color: #00bdd3;
+    }
+  }
+
+  .uploadBtn {
+    color: rgba(0, 0, 0, 0.87);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-right: 0 solid #d0cfcf;
+
+    input[type="file"] {
+      display: none;
+    }
+  }
+
+  .input.fileName {
+    flex: 1;
+    border: none;
+    background: #fff;
+    padding: 0 16px;
+    font-size: 16px;
+    line-height: 26px;
+    color: #7e7e7e;
+    outline: none;
+  }
+
+  .formGroup button {
+    font-size: 16px;
+    line-height: 26px;
+    font-weight: 400;
+  }
+}
+
+@media (max-width: 1185px) {
+  .blockRegistration {
+    margin: 0 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .blockRegistration {
+
+  }
+}
+
+@media (max-width: 360px) {
+  .blockRegistration {
+
+  }
+}
