@@ -30,7 +30,7 @@ const MUI_styles = {
   }
 }
 
-const EMAIL_RFC2822 = /^(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z]{2,}|(?:\[(?:(?:25[0-5]|2[0-4]\d|1\d\d|\d?\d)\.){3}(?:25[0-5]|2[0-4]\d|1\d\d|\d?\d)\]))$/i;
+const EMAIL_SAFE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export default function RegistrationForm({ onSuccess }: { onSuccess?: () => void }) {
   const [positions, setPositions] = useState<PositionsResponse['positions']>([]);
@@ -121,7 +121,7 @@ export default function RegistrationForm({ onSuccess }: { onSuccess?: () => void
           fullWidth
           {...register("email", {
             required: "Email is required",
-            pattern: { value: EMAIL_RFC2822, message: "Email must match RFC 2822" },
+            pattern: { value: EMAIL_SAFE, message: "Email is invalid" },
             setValueAs: (v) => (typeof v === "string" ? v.trim() : v),
           })}
           error={!!errors.email}
@@ -164,7 +164,7 @@ export default function RegistrationForm({ onSuccess }: { onSuccess?: () => void
           />
 
           <div className={styles.blockPositionAvatar}>
-            <PositionSelector <FormValues>
+            <PositionSelector<FormValues>
               control={control}
               name="position_id"
               positions={positions}
